@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20250502-book-update
+      author: peter
+      changes:
+        - modifyDataType:
+            columnName: title
+            newDataType: VARCHAR(100)
+            tableName: book
+        - addColumn:
+            tableName: book
+            columns:
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+
+      rollback:
+        - modifyDataType:
+            columnName: title
+            newDataType: INT
+            tableName: book
+        - dropColumn:
+            columnName: description
+            tableName: book

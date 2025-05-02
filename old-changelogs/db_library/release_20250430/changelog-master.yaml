@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: tables/bookInit.sql
+      relativeToChangelogFile: true
+  - include:
+      file: tables/pageInit.sql
+      relativeToChangelogFile: true

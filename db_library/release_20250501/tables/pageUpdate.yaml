@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20250502-page-update
+      author: peter
+      changes:
+        - addColumn:
+            tableName: page
+            columns:
+              - column:
+                  name: content
+                  type: VARCHAR(255)
+
+      rollback:
+        - dropColumn:
+            columnName: content
+            tableName: page
