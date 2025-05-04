@@ -1,3 +1,11 @@
-docker run --rm  -v "C:\Users\peter\IdeaProjects\liquibase-test\db_library\release_20250501":/liquibase/changelog -e INSTALL_MYSQL=true -w /liquibase/changelog  liquibase/liquibase   --changeLogFile=changelog-master.yaml  --url=jdbc:mysql://host.docker.internal:3306/db_library --driver=com.mysql.cj.jdbc.Driver   --username=root   --password=root rollback 20250501-pre-update
+docker run --rm  -v "C:\Users\peter\IdeaProjects\liquibase-test\db_library\release_20250501":/liquibase/changelog -e INSTALL_MYSQL=true -w /liquibase/changelog  liquibase/liquibase   --changeLogFile=baseline-20250101.yaml --url=jdbc:mysql://host.docker.internal:3306/db_library --driver=com.mysql.cj.jdbc.Driver   --username=root   --password=root generateChangeLog
+
+docker run --rm  -v "C:\Users\peter\IdeaProjects\liquibase-test\db_library":/liquibase/changelog -e INSTALL_MYSQL=true -w /liquibase/changelog  liquibase/liquibase  --changeLogFile=baseline-2025.yaml --url=jdbc:mysql://host.docker.internal:3306/db_library --driver=com.mysql.cj.jdbc.Driver   --username=root   --password=root changelogSync
+
+docker run --rm  -e INSTALL_MYSQL=true liquibase/liquibase --url=jdbc:mysql://host.docker.internal:3306/db_library --driver=com.mysql.cj.jdbc.Driver --username=root --password=root tag 20250501-pre-update
 
 docker run --rm  -v "C:\Users\peter\IdeaProjects\liquibase-test\db_library\release_20250501":/liquibase/changelog -e INSTALL_MYSQL=true -w /liquibase/changelog  liquibase/liquibase   --changeLogFile=changelog-master.yaml  --url=jdbc:mysql://host.docker.internal:3306/db_library --driver=com.mysql.cj.jdbc.Driver   --username=root   --password=root update
+
+docker run --rm  -v "C:\Users\peter\IdeaProjects\liquibase-test\db_library\release_20250501":/liquibase/changelog -e INSTALL_MYSQL=true -w /liquibase/changelog  liquibase/liquibase   --changeLogFile=changelog-master.yaml  --url=jdbc:mysql://host.docker.internal:3306/db_library --driver=com.mysql.cj.jdbc.Driver   --username=root   --password=root rollback 20250501-pre-update
+
+docker run --rm  -v "C:\Users\peter\IdeaProjects\liquibase-test\db_library\release_20250501":/liquibase/changelog -e INSTALL_MYSQL=true -w /liquibase/changelog  liquibase/liquibase   --changeLogFile=changelog-master.yaml  --url=jdbc:mysql://host.docker.internal:3306/db_library --driver=com.mysql.cj.jdbc.Driver   --username=root   --password=root rollbackToDate "2025-05-01 00:00:00"

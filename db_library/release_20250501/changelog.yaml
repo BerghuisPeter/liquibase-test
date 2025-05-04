@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - include:
+      file: bookUpdate.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: pageUpdate.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: pageUpdate2.sql
+      relativeToChangelogFile: true

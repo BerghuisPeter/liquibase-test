@@ -1,8 +1,0 @@
-databaseChangeLog:
-  - include:
-      file: tables/bookUpdate.yaml
-  - include:
-      file: tables/pageUpdate.yaml
-  - include:
-      file: tables/pageUpdate2.sql
-      relativeToChangelogFile: true

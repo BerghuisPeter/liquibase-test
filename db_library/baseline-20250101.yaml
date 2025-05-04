@@ -1,0 +1,36 @@
+databaseChangeLog:
+- changeSet:
+    id: 1746371261338-1
+    author: liquibase (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            type: INT
+        - column:
+            name: title
+            type: INT
+        tableName: book
+- changeSet:
+    id: 1746371261338-2
+    author: liquibase (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            type: INT
+        - column:
+            name: page
+            type: INT
+        tableName: page
+
