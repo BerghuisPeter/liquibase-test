@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  mysql-liqui:
+    image: mysql:8.0
+    container_name: mysql8
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: liqui_test
+    ports:
+      - "3308:3306"
+    command: >
+      --early-plugin-load=keyring_file.so
+      --keyring_file_data=/var/lib/mysql-keyring/keyring
